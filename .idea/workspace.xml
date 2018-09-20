@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="762edac0-9ac4-439c-8715-a5ad063d0095" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codehacking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codehacking.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="762edac0-9ac4-439c-8715-a5ad063d0095" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +81,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="-482">
               <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
               <folding>
                 <element signature="e#40#75#0#PHP" expanded="true" />
@@ -241,7 +230,7 @@
       <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -394,18 +383,18 @@
       <workItem from="1537259404000" duration="7081000" />
       <workItem from="1537319682925" duration="3568000" />
       <workItem from="1537323598791" duration="1206000" />
-      <workItem from="1537402801699" duration="8031000" />
+      <workItem from="1537402801699" duration="8264000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29593000" />
+    <option name="totallyTimeSpent" value="29826000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2685325" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2685325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -418,7 +407,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32903227" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -560,7 +549,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="-482">
           <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
           <folding>
             <element signature="e#40#75#0#PHP" expanded="true" />
