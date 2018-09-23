@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class UsersRequest extends Request
+class UsersEditRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,10 +26,8 @@ class UsersRequest extends Request
         return [
             //
 
-            'name'=>'required|min:4',
+            'name'=>'required',
             'email'=>'required|email',
-//            'password'=>['required', 'min:8', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/'],
-            'password'=>['required', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/'],
             'role_id'=>'required',
             'is_active'=>'required'
 

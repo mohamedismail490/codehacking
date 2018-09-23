@@ -15,6 +15,7 @@
         <thead>
         <tr>
             <th>ID</th>
+            <th>PHOTO</th>
             <th>NAME</th>
             <th>EMAIL</th>
             <th>ROLE</th>
@@ -31,9 +32,12 @@
 
                 <tr>
                     <td>{{$user -> id}}</td>
-                    <td>{{$user -> name}}</td>
+                    {{--<td>{{$user -> photo ['file']}}</td>--}}
+                    <td><a href="{{route('admin.users.edit', $user -> id)}}"><img height="50" width="50" src="{{$user -> photo ? $user -> photo -> file : '/images/avatar_default.jpg'}}" class="img-rounded" alt=""></a></td>
+                    <td><a href="{{route('admin.users.edit', $user -> id)}}">{{$user -> name}}</a></td>
                     <td>{{$user -> email}}</td>
-                    <td>{{$user -> role [ 'name']}}</td>
+                    {{--<td>{{$user -> role [ 'name']}}</td>--}}
+                    <td>{{$user -> role ? $user -> role -> name : 'No Role for this User'}}</td>
                     <td>{{$user -> is_active == 1 ? 'Active' : 'Not Active'}}</td>
                     <td>{{$user -> created_at -> diffForHumans()}}</td>
                     <td>{{$user -> updated_at -> diffForHumans()}}</td>
