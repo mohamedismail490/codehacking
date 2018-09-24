@@ -10,6 +10,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Session;
 
 //if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
 //    // Ignores notices and reports all other kinds... and warnings
@@ -81,6 +82,7 @@ class AdminUsersController extends Controller
 
         User::create($input);
 
+        Session::flash('created_user', 'The User has been Created');
 
 
         return redirect('admin/users');
@@ -157,6 +159,8 @@ class AdminUsersController extends Controller
 
         $user->update($input);
 
+        Session::flash('updated_user', 'The User has been Updated Successfully.');
+
         return redirect('admin/users');
 
     }
@@ -170,5 +174,32 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
+
+       $user = User::findOrFail($id);
+       $photo = $user->photo_id ;
+
+
+
+        if ($photo) {
+
+                // to delete user's photo from directory
+            unlink(public_path() . $user->photo->file);
+
+            $photo1 = Photo::findOrFail($photo);
+
+            $photo1->delete();
+
+        }
+
+       $user->delete();
+
+
+
+
+
+        Session::flash('deleted_user', 'The User has been Deleted');
+
+       return redirect('/admin/users');
+
     }
 }
