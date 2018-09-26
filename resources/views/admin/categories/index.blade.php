@@ -6,6 +6,21 @@
 
     <h1>Categories</h1>
 
+    @if(Session::has('deleted_category'))
+
+        <p class="alert alert-danger">{{session('deleted_category')}}</p>
+
+    @elseif(Session::has('updated_category'))
+
+        <p class="alert alert-success">{{session('updated_category')}}</p>
+
+    @elseif(Session::has('created_category'))
+
+        <p class="alert alert-success">{{session('created_category')}}</p>
+
+
+    @endif
+
     <div class="col-sm-6">
 
         {!! Form::open(['method'=>'POST', 'action'=>'AdminCategoriesController@store']) !!}
@@ -20,6 +35,8 @@
             </div>
 
         {!! Form::close() !!}
+
+      @include('includes.form_error')
 
     </div>
     <div class="col-sm-6">
@@ -41,7 +58,7 @@
 
         <tr>
             <td>{{$category->id}}</td>
-            <td>{{$category->name}}</td>
+            <td><a href="{{route('admin.categories.edit', $category->id)}}">{{$category->name}}</a></td>
             <td>{{$category->created_at ? $category->created_at->diffForHumans() : 'No date'}}</td>
             <td>{{$category->updated_at ? $category->updated_at->diffForHumans() : 'No date'}}</td>
         </tr>
