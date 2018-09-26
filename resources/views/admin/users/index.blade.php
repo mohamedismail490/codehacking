@@ -35,8 +35,8 @@
             <th>EMAIL</th>
             <th>ROLE</th>
             <th>STATUS</th>
-            <th>CREATED_AT</th>
-            <th>UPDATED_AT</th>
+            <th>CREATED</th>
+            <th>UPDATED</th>
         </tr>
         </thead>
         <tbody>
@@ -48,7 +48,7 @@
                 <tr>
                     <td>{{$user -> id}}</td>
                     {{--<td>{{$user -> photo ['file']}}</td>--}}
-                    <td><a href="{{route('admin.users.edit', $user -> id)}}"><img height="50" width="50" src="{{$user -> photo ? $user -> photo -> file : '/images/avatar_default.jpg'}}" class="img-rounded" alt=""></a></td>
+                    <td><a href="{{route('admin.users.edit', $user -> id)}}"><img height="70" src="{{$user -> photo ? $user -> photo -> file : '/images/avatar_default.jpg'}}" class="img-rounded" alt=""></a></td>
                     <td><a href="{{route('admin.users.edit', $user -> id)}}">{{$user -> name}}</a></td>
                     <td>{{$user -> email}}</td>
                     {{--<td>{{$user -> role [ 'name']}}</td>--}}

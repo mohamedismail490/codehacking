@@ -4,6 +4,21 @@
 
 @section('content')
 
+    @if(Session::has('deleted_post'))
+
+        <p class="alert alert-danger">{{session('deleted_post')}}</p>
+
+    @elseif(Session::has('updated_post'))
+
+        <p class="alert alert-success">{{session('updated_post')}}</p>
+
+    @elseif(Session::has('created_post'))
+
+        <p class="alert alert-success">{{session('created_post')}}</p>
+
+
+    @endif
+
     <h1>Users Posts</h1>
 
     <table class="table">
@@ -15,8 +30,8 @@
             <th>CATEGORY</th>
             <th>TITLE</th>
             <th>BODY</th>
-            <th>CREATED_AT</th>
-            <th>UPDATED_AT</th>
+            <th>CREATED</th>
+            <th>UPDATED</th>
         </tr>
       </thead>
       <tbody>
@@ -27,11 +42,11 @@
 
             <tr>
                 <td>{{$post->id}}</td>
-                <td><img height="70" src="{{$post->photo ? $post->photo->file : '/images/no_image_placeholder.jpg'}}" alt=""></td>
-                <td>{{$post->user->name}}</td>
+                <td><a href="{{route('admin.posts.edit', $post->id)}}"><img height="70" src="{{$post->photo ? $post->photo->file : '/images/no_image_placeholder.jpg'}}" class="img-rounded" alt=""></a></td>
+                <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->user->name}}</a></td>
                 <td>{{$post->category ? $post->category->name : 'Uncategorized'}}</td>
                 <td>{{$post->title}}</td>
-                <td>{{$post->body}}</td>
+                <td>{{str_limit($post->body, 15)}}</td>
                 <td>{{$post->created_at->diffForHumans()}}</td>
                 <td>{{$post->updated_at->diffForHumans()}}</td>
 
