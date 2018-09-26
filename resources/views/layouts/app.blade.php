@@ -68,6 +68,9 @@
                         </li>
                     @endif
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ url('/admin') }}">Admin</a></li>
+                </ul>
             </div>
         </div>
     </nav>
