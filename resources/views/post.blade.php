@@ -5,6 +5,10 @@
 @section('content')
 
 
+    <!-- Blog Post Content Column -->
+    <div class="col-lg-8">
+
+
     <!-- Blog Post -->
 
     <!-- Title -->
@@ -104,6 +108,47 @@
    @endforeach
 
   @endif
+
+   </div>
+
+    <!-- Blog Sidebar Widgets Column -->
+    <div class="col-md-4">
+
+        <!-- Blog Search Well -->
+        <div class="well">
+            <h4>Blog Search</h4>
+            <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+            </div>
+            <!-- /.input-group -->
+        </div>
+    @if(count($categories) > 0)
+        <!-- Blog Categories Well -->
+            <div class="well">
+                <h4>Blog Categories</h4>
+                <div class="row">
+                    <div>
+                        <ul class="list-unstyled">
+
+                            @foreach($categories as $category)
+
+                            <li class="col-lg-4"><a href="#">{{$category->name}}</a>
+                            </li>
+
+                            @endforeach
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+
+    @endif
 
 
 @stop
