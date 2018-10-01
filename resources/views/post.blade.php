@@ -49,127 +49,127 @@
 
     <hr>
 
-
+    </div>
 
     <!-- Blog Comments -->
 
-  @if(Auth::check())
+  {{--@if(Auth::check())--}}
 
-      @if(Session::has('comment_message'))
+      {{--@if(Session::has('comment_message'))--}}
 
-          <p class="alert alert-primary">{{session('comment_message')}}</p>
+          {{--<p class="alert alert-primary">{{session('comment_message')}}</p>--}}
 
-      @endif
-    <!-- Comments Form -->
-    <div class="well">
-        <h4>Leave a Comment:</h4>
+      {{--@endif--}}
+    {{--<!-- Comments Form -->--}}
+    {{--<div class="well">--}}
+        {{--<h4>Leave a Comment:</h4>--}}
 
-        {!! Form::open(['method'=>'POST', 'action'=>'PostCommentsController@store']) !!}
+        {{--{!! Form::open(['method'=>'POST', 'action'=>'PostCommentsController@store']) !!}--}}
 
-            <input type="hidden" name="post_id" value="{{$post->id}}">
+            {{--<input type="hidden" name="post_id" value="{{$post->id}}">--}}
 
-            <div class="form-group">
-                {!! Form::textarea('body',null, ['class'=>'form-control', 'rows'=>3]) !!}
-            </div>
+            {{--<div class="form-group">--}}
+                {{--{!! Form::textarea('body',null, ['class'=>'form-control', 'rows'=>3]) !!}--}}
+            {{--</div>--}}
 
-            <div class="form-group">
-                {!! Form::submit('Comment', ['class'=>'btn btn-primary']) !!}
-            </div>
+            {{--<div class="form-group">--}}
+                {{--{!! Form::submit('Comment', ['class'=>'btn btn-primary']) !!}--}}
+            {{--</div>--}}
 
-        {!! Form::close() !!}
+        {{--{!! Form::close() !!}--}}
 
-    </div>
+    {{--</div>--}}
 
-  @endif
+  {{--@endif--}}
 
-    <hr>
-
-
-  @if(count($comments) > 0)
-
-    <!-- Posted Comments -->
-
-   @foreach($comments as $comment)
-
-    <!-- Comment -->
-    <div class="media">
-        <a class="pull-left" href="#">
-            <img height="64" width="64" class="media-object img-rounded" src="{{$comment->photo}}" alt="">
-        </a>
-        <div class="media-body">
-            <h4 class="media-heading">{{$comment->author}}
-                <small>{{$comment->created_at->diffForHumans()}}</small>
-            </h4>
-            {{$comment->body}}
+    {{--<hr>--}}
 
 
+  {{--@if(count($comments) > 0)--}}
 
-            @if(count($comment->replies) > 0)
+    {{--<!-- Posted Comments -->--}}
 
-                @foreach($comment->replies as $reply)
+   {{--@foreach($comments as $comment)--}}
 
-                    @if($reply->is_active == 1)
-
-                        <!-- Nested Comment -->
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img height="64" width="64" class="media-object img-rounded" src="{{$reply->photo}}" alt="">
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">{{$reply->author}}
-                                    <small>{{$reply->created_at->diffForHumans()}}</small>
-                                </h4>
-                                {{$reply->body}}
-                            </div>
+    {{--<!-- Comment -->--}}
+    {{--<div class="media">--}}
+        {{--<a class="pull-left" href="#">--}}
+            {{--<img height="64" width="64" class="media-object img-rounded" src="{{$comment->photo}}" alt="">--}}
+        {{--</a>--}}
+        {{--<div class="media-body">--}}
+            {{--<h4 class="media-heading">{{$comment->author}}--}}
+                {{--<small>{{$comment->created_at->diffForHumans()}}</small>--}}
+            {{--</h4>--}}
+            {{--{{$comment->body}}--}}
 
 
 
+            {{--@if(count($comment->replies) > 0)--}}
 
-                        </div>
-                            <!-- End Nested Comment -->
+                {{--@foreach($comment->replies as $reply)--}}
 
-                    @endif
+                    {{--@if($reply->is_active == 1)--}}
 
-                @endforeach
-
-            @endif
-            <div class="media comment-reply-container">
-
-
-                <button class="toggle-reply btn btn-primary pull-right fa fa-arrow-left col-sm-1"></button>
-
-                <div class="comment-reply col-sm-10">
-
-                {!! Form::open(['method'=>'POST', 'action'=>'CommentRepliesController@store']) !!}
-
-                <input type="hidden" name="comment_id" value="{{$comment->id}}">
-
-                <div class="form-group">
-
-                    {!! Form::textarea('body',null, ['class'=>'form-control', 'rows'=> 1]) !!}
-
-                </div>
-
-                <div class="form-group">
-                    {!! Form::submit('Reply', ['class'=>'btn btn-primary']) !!}
-                </div>
-
-                {!! Form::close() !!}
+                        {{--<!-- Nested Comment -->--}}
+                        {{--<div class="media">--}}
+                            {{--<a class="pull-left" href="#">--}}
+                                {{--<img height="64" width="64" class="media-object img-rounded" src="{{$reply->photo}}" alt="">--}}
+                            {{--</a>--}}
+                            {{--<div class="media-body">--}}
+                                {{--<h4 class="media-heading">{{$reply->author}}--}}
+                                    {{--<small>{{$reply->created_at->diffForHumans()}}</small>--}}
+                                {{--</h4>--}}
+                                {{--{{$reply->body}}--}}
+                            {{--</div>--}}
 
 
-                </div>
-
-            </div>
 
 
-        </div>
-    </div>
+                        {{--</div>--}}
+                            {{--<!-- End Nested Comment -->--}}
 
-   @endforeach
+                    {{--@endif--}}
 
-  @endif
+                {{--@endforeach--}}
 
-   </div>
+            {{--@endif--}}
+            {{--<div class="media comment-reply-container">--}}
+
+
+                {{--<button class="toggle-reply btn btn-primary pull-right fa fa-arrow-left col-sm-1"></button>--}}
+
+                {{--<div class="comment-reply col-sm-10">--}}
+
+                {{--{!! Form::open(['method'=>'POST', 'action'=>'CommentRepliesController@store']) !!}--}}
+
+                {{--<input type="hidden" name="comment_id" value="{{$comment->id}}">--}}
+
+                {{--<div class="form-group">--}}
+
+                    {{--{!! Form::textarea('body',null, ['class'=>'form-control', 'rows'=> 1]) !!}--}}
+
+                {{--</div>--}}
+
+                {{--<div class="form-group">--}}
+                    {{--{!! Form::submit('Reply', ['class'=>'btn btn-primary']) !!}--}}
+                {{--</div>--}}
+
+                {{--{!! Form::close() !!}--}}
+
+
+                {{--</div>--}}
+
+            {{--</div>--}}
+
+
+        {{--</div>--}}
+    {{--</div>--}}
+
+   {{--@endforeach--}}
+
+  {{--@endif--}}
+
+   {{--</div>--}}
 
     <!-- Blog Sidebar Widgets Column -->
     <div class="col-md-4">
@@ -220,24 +220,55 @@
     </div>
 
 
-@stop
+{{--@stop--}}
 
 
-@section('scripts')
+{{--@section('scripts')--}}
 
-    <script>
+    {{--<script>--}}
 
-        $(".comment-reply-container .toggle-reply").click(function () {
-
-
-            $(this).next().slideToggle("slow");
-            $(this).toggleClass("fa-arrow-down");
+        {{--$(".comment-reply-container .toggle-reply").click(function () {--}}
 
 
-        });
+            {{--$(this).next().slideToggle("slow");--}}
+            {{--$(this).toggleClass("fa-arrow-down");--}}
 
 
-    </script>
+        {{--});--}}
+
+
+    {{--</script>--}}
+
+
+
+
+
+
+
+        <div id="disqus_thread"></div>
+        <script>
+
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+            /*
+            var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://codehacking-d0mohorrxu.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    <script id="dsq-count-scr" src="//codehacking-d0mohorrxu.disqus.com/count.js" async></script>
+
+
 
 
 @stop
