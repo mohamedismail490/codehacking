@@ -15,6 +15,7 @@
                 <th>AUTHOR</th>
                 <th>EMAIL</th>
                 <th>CONTENT</th>
+                <th>REPLIES</th>
                 <th>CREATED</th>
                 <th>Confirmation</th>
             </tr>
@@ -25,8 +26,9 @@
                 <tr>
                     <td>{{$comment->id}}</td>
                     <td>{{$comment->author}}</td>
-                    <td>{{$comment->email}}</td>
-                    <td>{{$comment->body}}</td>
+                    <td>{{str_limit($comment->email, 15)}}</td>
+                    <td>{{str_limit($comment->body, 15)}}</td>
+                    <td><a href="{{route('admin.comment.replies.show', $comment->id)}}">View Replies</a></td>
                     <td>{{$comment->created_at->diffForHumans()}}</td>
                     <td>
 
@@ -81,10 +83,20 @@
             </tbody>
         </table>
 
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-5">
+
+                {{$comments->render()}}
+
+            </div>
+        </div>
+
     @else
 
         <h1 class="text-center">No Comments</h1>
 
     @endif
+
+
 
 @stop

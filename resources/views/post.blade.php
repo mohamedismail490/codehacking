@@ -1,13 +1,26 @@
 @extends('layouts.blog-post')
 
 
+@section('styles')
+
+    <style type="text/css">
+
+        .comment-reply{
+
+            display: none;
+
+        }
+
+    </style>
+
+
+@stop
+
 
 @section('content')
 
-
     <!-- Blog Post Content Column -->
     <div class="col-lg-8">
-
 
     <!-- Blog Post -->
 
@@ -27,12 +40,12 @@
     <hr>
 
     <!-- Preview Image -->
-    <img class="img-responsive" src="{{$post->photo->file}}" alt="">
+    <img class="img-responsive" src="{{$post->photo ? $post->photo->file : '/images/no_image_placeholder.jpg'}}" alt="">
 
     <hr>
 
     <!-- Post Content -->
-    <p class="lead">{{$post->body}}</p>
+    <p class="lead">{!! $post->body !!}</p>
 
     <hr>
 
@@ -60,7 +73,7 @@
             </div>
 
             <div class="form-group">
-                {!! Form::submit('Submit', ['class'=>'btn btn-primary']) !!}
+                {!! Form::submit('Comment', ['class'=>'btn btn-primary']) !!}
             </div>
 
         {!! Form::close() !!}
@@ -89,19 +102,66 @@
             </h4>
             {{$comment->body}}
 
-            <!-- Nested Comment -->
-            <div class="media">
-                <a class="pull-left" href="#">
-                    <img height="64" width="64" class="media-object img-rounded" src="http://placehold.it/64x64" alt="">
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">Nested Start Bootstrap
-                        <small>August 25, 2014 at 9:30 PM</small>
-                    </h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+
+            @if(count($comment->replies) > 0)
+
+                @foreach($comment->replies as $reply)
+
+                    @if($reply->is_active == 1)
+
+                        <!-- Nested Comment -->
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img height="64" width="64" class="media-object img-rounded" src="{{$reply->photo}}" alt="">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">{{$reply->author}}
+                                    <small>{{$reply->created_at->diffForHumans()}}</small>
+                                </h4>
+                                {{$reply->body}}
+                            </div>
+
+
+
+
+                        </div>
+                            <!-- End Nested Comment -->
+
+                    @endif
+
+                @endforeach
+
+            @endif
+            <div class="media comment-reply-container">
+
+
+                <button class="toggle-reply btn btn-primary pull-right fa fa-arrow-left col-sm-1"></button>
+
+                <div class="comment-reply col-sm-10">
+
+                {!! Form::open(['method'=>'POST', 'action'=>'CommentRepliesController@store']) !!}
+
+                <input type="hidden" name="comment_id" value="{{$comment->id}}">
+
+                <div class="form-group">
+
+                    {!! Form::textarea('body',null, ['class'=>'form-control', 'rows'=> 1]) !!}
+
                 </div>
+
+                <div class="form-group">
+                    {!! Form::submit('Reply', ['class'=>'btn btn-primary']) !!}
+                </div>
+
+                {!! Form::close() !!}
+
+
+                </div>
+
             </div>
-            <!-- End Nested Comment -->
+
+
         </div>
     </div>
 
@@ -137,18 +197,47 @@
 
                             @foreach($categories as $category)
 
-                            <li class="col-lg-4"><a href="#">{{$category->name}}</a>
+                            <li class="col-lg-6"><a href="#">{{$category->name}}</a>
                             </li>
 
                             @endforeach
 
                         </ul>
                     </div>
+
                 </div>
                 <!-- /.row -->
             </div>
 
     @endif
+
+    <!-- Side Widget Well -->
+        <div class="well">
+            <h4>Side Widget Well</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+        </div>
+
+    </div>
+
+
+@stop
+
+
+@section('scripts')
+
+    <script>
+
+        $(".comment-reply-container .toggle-reply").click(function () {
+
+
+            $(this).next().slideToggle("slow");
+            $(this).toggleClass("fa-arrow-down");
+
+
+        });
+
+
+    </script>
 
 
 @stop

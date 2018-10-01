@@ -2,10 +2,6 @@
 
 
 
-
-
-
-
 @section('content')
 
     <h1>Edit User</h1>
@@ -20,6 +16,8 @@
 
 
     <div class="col-sm-9">
+
+        <div class="row">
 
         {!! Form::model($user, ['method'=>'PATCH', 'action'=>['AdminUsersController@update', $user -> id], 'files'=>true]) !!}
 
@@ -67,8 +65,13 @@
 
         {!! Form::close() !!}
 
-        @include('includes.form_error')
 
+        </div>
+        <div class="row">
+
+            @include('includes.form_error')
+
+        </div>
     </div>
 
 

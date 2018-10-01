@@ -50,6 +50,14 @@
             </tbody>
         </table>
 
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-5">
+
+                {{$photos->render()}}
+
+            </div>
+        </div>
+
     @endif
 
 @stop
