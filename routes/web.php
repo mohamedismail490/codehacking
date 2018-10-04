@@ -100,6 +100,7 @@ Route::group(['middleware'=>'admin'], function () {
 
 
     ]]);
+
     Route::resource('admin/media', 'AdminMediasController',['names'=>[
 
         'index'=>'admin.media.index',
@@ -113,6 +114,8 @@ Route::group(['middleware'=>'admin'], function () {
 
 
     ]]);
+
+    Route::delete('admin/delete/media', 'AdminMediasController@deleteMedia');
 
 
 });
