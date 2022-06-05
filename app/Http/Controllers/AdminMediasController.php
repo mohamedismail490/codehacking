@@ -19,7 +19,7 @@ class AdminMediasController extends Controller
     {
         //
 
-        $photos = Photo::paginate(4);
+        $photos = Photo::paginate(10);
 
         return view('admin.media.index', compact('photos'));
     }

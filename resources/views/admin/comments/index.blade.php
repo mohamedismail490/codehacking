@@ -29,7 +29,7 @@
                 <td>{{$comment->author}}</td>
                 <td>{{str_limit($comment->email, 15)}}</td>
                 <td>{{str_limit($comment->body, 15)}}</td>
-                <td><a href="{{route('home.post', $comment->post->id)}}">View Post</a></td>
+                <td><a href="{{route('home.post', $comment->post->slug)}}">View Post</a></td>
                 <td><a href="{{route('admin.comment.replies.show', $comment->id)}}">View Replies</a></td>
                 <td>{{$comment->created_at->diffForHumans()}}</td>
                 <td>

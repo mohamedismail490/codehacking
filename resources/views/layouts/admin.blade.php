@@ -63,14 +63,14 @@
 
 
             <!-- /.dropdown -->
-            {{--<li class="dropdown">--}}
-                {{--<a class="dropdown-toggle" data-toggle="dropdown" href="#">--}}
-                    {{--<i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>--}}
-                {{--</a>--}}
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
                 </a>
+            {{--<li class="dropdown">--}}
+                {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">--}}
+                    {{--<i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>--}}
+                {{--</a>--}}
 
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -363,13 +363,16 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
-{{--<script src="{{asset('js/libs.js')}}"></script>--}}
-<script src="{{asset('js/jquery.js')}}"></script>
-<script src="{{asset('js/bootstrap.js')}}"></script>
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
-<script src="{{asset('js/metisMenu.js')}}"></script>
-<script src="{{asset('js/sb-admin-2.js')}}"></script>
-<script src="{{asset('js/scripts.js')}}"></script>
+<script src="{{asset('js/libs.js')}}"></script>
+
+
+
+{{--<script src="{{asset('js/jquery.js')}}"></script>--}}
+{{--<script src="{{asset('js/bootstrap.js')}}"></script>--}}
+{{--<script src="{{asset('js/bootstrap.min.js')}}"></script>--}}
+{{--<script src="{{asset('js/metisMenu.js')}}"></script>--}}
+{{--<script src="{{asset('js/sb-admin-2.js')}}"></script>--}}
+{{--<script src="{{asset('js/scripts.js')}}"></script>--}}
 
 
 <!-- JavaScripts -->

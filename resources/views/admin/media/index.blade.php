@@ -126,6 +126,11 @@
             
         });
 
+        // function confirm(text) {
+        //     alert(text);
+        //
+        // }
+
     </script>
 
 @stop
